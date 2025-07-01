@@ -68,7 +68,7 @@ const uploadMiddleware = multer({ storage: storage, fileFilter: fileFilter });
 
 
 
-// API Endpoint to handle POST data
+
 app.post("/",uploadMiddleware.fields([{ name: 'file', maxCount: 1 },]), async (req, res) => {
   const { userId, prompt } = req.body;
   const File = req.files && req.files['file'] ? req.files['file'][0] : null;
